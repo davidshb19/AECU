@@ -3,7 +3,9 @@
   #define MOTHERBOARD BOARD_UNO
 #endif
 //motor model. uncommit the correct line fot the type of moter you have.
-#define GAS
+#ifndef GAS
+  #define GAS
+#endif
 //throtel posisitions. this is where you input the low and high positions of your potentiomiter and servo(if you have a gas engen) for the throtel
 #ifndef THR_LOW
   #define THR_LOW 0
@@ -41,8 +43,8 @@
       #define CHOKE_REV_TIME 100 //mesured in miliseconds
     #endif
   #endif
-  
-  //choke positions. this is where you input the low and high positions of your servo for the choke positions. 
+
+  //choke positions. this is where you input the low and high positions of your servo for the choke positions.
   //if you dont have a choke (throtel/choke combo) than commit the folowing line out.
   //if you want to proporly use the choke you will need at least a oxegen sensor on the exhaust.
   //you can run choke without a oxegen sensor but it will just open the choke once you have reved high for a set amout of time.
@@ -53,7 +55,7 @@
     #endif
     #ifndef CHOKE_SERVO_HIGH
       #define CHOKE_SERVO_HIGH 180
-    #endif   
+    #endif
   #endif
 #endif
 
