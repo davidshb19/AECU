@@ -6,7 +6,7 @@
 //motor model. uncommit the correct line fot the type of moter you have.
 //if you have gas set to 1.
 // if electric set to 2
-#ifndef
+#ifndef MOTOR
   #define MOTOR 1
 #endif
 
@@ -68,7 +68,7 @@
   #define KEY_POS 1
 #endif
 
-#ifdef MOTOR==1
+#if MOTOR==1
   //spark active.
   #define SPARK_ACTIVE_ON HIGH //state for relay to be in on position
   //starter motor. comment out the fllowing line of code if you dont have a ignition motor

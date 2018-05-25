@@ -1,5 +1,5 @@
 #include <Servo.h>
-#include <"rpm.h">
+#include "rpm.h"
 #ifdef CHOKE
   #include "choke.h"
 #endif
