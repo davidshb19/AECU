@@ -32,6 +32,7 @@ before_script:
   #
   # Change current working directory to the build dir
   - cd ${TRAVIS_BUILD_DIR}
+  - ls
   #
 script:
   #
@@ -42,4 +43,4 @@ script:
   #
   # Build with the default configurations
   #
-  - ./${TRAVIS_BUILD_DIR}/buildroot/bin/build_eacu
+  - build_eacu
