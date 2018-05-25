@@ -1,4 +1,5 @@
 #include <Servo.h>
+#include <"rpm.h">
 Servo throttleServo;
 #ifdef CHOKE
   #include "choke.h"
@@ -6,12 +7,6 @@ Servo throttleServo;
 int thrPos=0;
 int gasLev=0;
 boolean engenON=false;
-
-int rpm()
-{
-  int rpms=0;//add code to read RPM***************************
-  return rpms;
-}
 
 int thrRead()
 {
@@ -79,7 +74,7 @@ void throttle()
     throttleServo.write(THROTTLE_SERVO_LOW);
 }
 
-void setUP() 
+void setUP()
 {
   throttleServo.attach(THROTTLE_SERVO_PIN);
   throttleServo.write(THROTTLE_SERVO_LOW);
