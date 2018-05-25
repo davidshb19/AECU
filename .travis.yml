@@ -42,4 +42,4 @@ script:
   #
   # Build with the default configurations
   #
-  - build_EACU
+  - ./${TRAVIS_BUILD_DIR}/buildroot/bin/build_eacu
