@@ -17,7 +17,7 @@
 #ifndef THR_HIGH
   #define THR_HIGH 255
 #endif
-#ifdef GAS
+#if MOTOR==1
   #ifndef THROTTLE_SERVO_LOW
     #define THROTTLE_SERVO_LOW 0
   #endif
@@ -68,7 +68,7 @@
   #define KEY_POS 1
 #endif
 
-#ifdef GAS
+#ifdef MOTOR==1
   //spark active.
   #define SPARK_ACTIVE_ON HIGH //state for relay to be in on position
   //starter motor. comment out the fllowing line of code if you dont have a ignition motor

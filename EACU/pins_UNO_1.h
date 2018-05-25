@@ -4,7 +4,7 @@
 #define DIGITAL_HIGH 13
 #define THROTTLE_PIN 14
 #define KEY_PIN 4
-#ifdef GAS
+#if MOTOR==1
   #define EXHAUST_OX_PIN 15
   #define THROTTLE_SERVO_PIN 2
   #define CHOKE_SERVO_PIN 3
