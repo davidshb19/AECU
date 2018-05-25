@@ -5,4 +5,6 @@
 #ifdef GAS
   #include "gasConfig.h"
 #endif
-#include "eacu.h"
+#ifdef ELECTRIC
+  #include "electricConfig.h"
+#endif
