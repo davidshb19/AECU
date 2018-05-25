@@ -1,6 +1,8 @@
 //Configuration.h requied
 #ifndef MOTHERBOARD
   #error "MOTHERBOARD must be specified."
+#elif !defined(MOTOR)
+  #error "MOTOR must be specified"
 #elif !defined(THR_LOW)
   #error "THR_LOW must be specified."
 #elif !defined(THR_HIGH)
@@ -8,7 +10,7 @@
 #elif !defined(KEY_POS)
   #error "KEY_POS must be specified."
 #endif
-#ifdef GAS
+#if MOTOR==1
   #ifndef THROTTLE_SERVO_LOW
     #error "THROTTLE_SERVO_LOW must be specified"
   #elif !defined(THROTTLE_SERVO_HIGH)
@@ -16,7 +18,7 @@
   #endif
 #endif
 //Configuration.h optional
-#ifdef GAS
+#if MOTOR==1
   #ifdef EXHAUST_OX
     #ifdef NO_OX
       #error "NO_OX and EXHAUST_OX can not be enabled at the same time"
@@ -59,7 +61,7 @@
 #elif KEY_PIN<DIGITAL_LOW||KEY_PIN>DIGITAL_HIGH
   #error "KEY_PIN is out of range."
 #endif
-#ifdef GAS
+#if MOTOR==1
   #ifndef THROTTLE_SERVO_PIN
     #error "THROTTLE_PIN must be specified."
   #elif THROTTLE_SERVO_PIN<DIGITAL_LOW||THROTTLE_SERVO_PIN>DIGITAL_HIGH

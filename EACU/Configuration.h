@@ -2,10 +2,14 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_UNO
 #endif
+
 //motor model. uncommit the correct line fot the type of moter you have.
-#ifndef GAS
-  #define GAS
+//if you have gas set to 1.
+// if electric set to 2
+#ifndef
+  #define MOTOR 1
 #endif
+
 //throtel posisitions. this is where you input the low and high positions of your potentiomiter and servo(if you have a gas engen) for the throtel
 #ifndef THR_LOW
   #define THR_LOW 0
@@ -22,7 +26,7 @@
   #endif
 #endif
 
-#ifdef GAS
+#if MOTOR==1
   //oxegen sensor. this is were you input the low and high positions of your Oxegen Sensor if you dont have a one or any of the oxygen sensors below commit it out.
   //if you want to use the choke features but dont have a oxegen sensor than uncommit NO_OX
   //#define NO_OX
