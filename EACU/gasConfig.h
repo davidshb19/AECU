@@ -1,9 +1,9 @@
 #include <Servo.h>
 #include <"rpm.h">
-Servo throttleServo;
 #ifdef CHOKE
   #include "choke.h"
 #endif
+Servo throttleServo;
 int thrPos=0;
 int gasLev=0;
 boolean engenON=false;
