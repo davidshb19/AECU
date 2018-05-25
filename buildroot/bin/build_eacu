@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case "$#" in
-  0 ) BOARD=arduino:avr:uno:cpu=atmega328p ;;
+  0 ) BOARD=arduino:avr:uno ;;
   * ) BOARD=arduino:avr:$1 ;;
 esac
 
