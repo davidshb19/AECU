@@ -46,6 +46,18 @@ script:
   #
   # reset config
   - restore_configs
-  #- opt_set TEMP_SENSOR_BED 1
+  # test with electric motor. at the moment does nothing
   - opt_set MOTOR 2
+  - build_eacu
+  # reset config
+  - restore_configs
+  # test with no smart running
+  - opt_disable EXHAUST_OX
+  - opt_disable CHOKE
+  - build_eacu
+  # reset config
+  - restore_configs
+  # test with choke but no o3 sensor
+  - opt_disable EXHAUST_OX
+  - opt_enable
   - build_eacu
