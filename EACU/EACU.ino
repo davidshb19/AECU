@@ -1,2 +1,10 @@
 #include "eacuConfig.h"
-#include "eacu.h"
+//run
+void setup()
+{
+  setUP();
+}
+void loop()
+{
+  go();
+}

@@ -2,9 +2,9 @@
 #include "boards.h"
 #include "pins.h"
 #include "SanityCheck.h"
-#ifdef GAS
+#if MOTOR==1
   #include "gasConfig.h"
 #endif
-#ifdef ELECTRIC
+#if MOTOR==2
   #include "electricConfig.h"
 #endif
