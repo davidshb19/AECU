@@ -33,10 +33,6 @@ before_script:
   # Change current working directory to the build dir
   - cd ${TRAVIS_BUILD_DIR}
   #
-  # Generate custom version include
-  - generate_version_header_for_marlin ${TRAVIS_BUILD_DIR}/Marlin
-  - cat ${TRAVIS_BUILD_DIR}/Marlin/_Version.h
-  #
 script:
   #
   # Backup Configuration.h, and pins_UNO_1.h
