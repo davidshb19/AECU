@@ -39,8 +39,13 @@ script:
   # Backup Configuration.h, and pins_UNO_1.h
   #
   - cp EACU/Configuration.h EACU/Configuration.h.backup
-  - cp EACU/pins_UNO_1.h EACU/pins_UNO_1.h.backup
   #
   # Build with the default configurations
   #
+  - build_eacu
+  #
+  # reset config
+  - restore_configs
+  #- opt_set TEMP_SENSOR_BED 1
+  - opt_set MOTOR 2
   - build_eacu

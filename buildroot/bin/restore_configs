@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cp EACU/Configuration.h.backup      EACU/Configuration.h
