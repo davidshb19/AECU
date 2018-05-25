@@ -1,27 +1,49 @@
+dist: trusty
+sudo: true
+  #
 language: c
-sudo: false
-
-# Blacklist
-branches:
-  except:
-    - gh-pages
-
-env:
-  global:
-     - PRETTYNAME="EACU"
-# Optional, will default to "$TRAVIS_BUILD_DIR/Doxyfile"
-#    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
-
+  #
+notifications:
+  email: true
+  #
 before_install:
-   - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-
+  #
+  # Fetch the tag information for the current branch
+  - git fetch origin --tags
+  #
+  # Publish the buildroot script folder
+  - chmod +x ${TRAVIS_BUILD_DIR}/buildroot/bin/*
+  - export PATH=${TRAVIS_BUILD_DIR}/buildroot/bin/:${PATH}
+  #
+  # Start fb X server
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16"
+  - sleep 3
+  - export DISPLAY=:1.0
+  #
 install:
-   - arduino
-
+  #
+  # Install arduino 1.6.10
+  - wget http://downloads-02.arduino.cc/arduino-1.6.10-linux64.tar.xz
+  - tar xf arduino-1.6.10-linux64.tar.xz
+  - sudo mv arduino-1.6.10 /usr/local/share/arduino
+  - ln -s /usr/local/share/arduino/arduino ${TRAVIS_BUILD_DIR}/buildroot/bin/arduino
+  #
+before_script:
+  #
+  # Change current working directory to the build dir
+  - cd ${TRAVIS_BUILD_DIR}
+  #
+  # Generate custom version include
+  - generate_version_header_for_marlin ${TRAVIS_BUILD_DIR}/Marlin
+  - cat ${TRAVIS_BUILD_DIR}/Marlin/_Version.h
+  #
 script:
-   - build_main_platforms
-
-# Generate and deploy documentation
-after_success:
-  - source <(curl -SLs  https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/library_check.sh)
-  - source <(curl -SLs  https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/doxy_gen_and_deploy.sh)
+  #
+  # Backup Configuration.h, and pins_UNO_1.h
+  #
+  - cp EACU/Configuration.h EACU/Configuration.h.backup
+  - cp EACU/pins_UNO_1.h EACU/pins_UNO_1.h.backup
+  #
+  # Build with the default configurations
+  #
+  - build_EACU
