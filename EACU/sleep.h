@@ -10,11 +10,12 @@ void engienAlive()
   {
     if(millis()-sleepTime>=ENGEN_SLEEP_TIME)
       {
-        sleep=true
+        sleep=true;
       }
-    }
   }
   else
-    sleep=false
+  {
+    sleep=false;
     sleepTime=millis();
+  }
 }

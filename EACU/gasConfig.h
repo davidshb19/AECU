@@ -1,10 +1,8 @@
 #include <Servo.h>
 #include "rpm.h"
+#include "key.h"
 #ifdef CHOKE
   #include "choke.h"
-#endif
-#ifdef ENGEN_SLEEP
-  #include "sleep.h"
 #endif
 Servo throttleServo;
 int thrPos=0;
@@ -14,13 +12,6 @@ boolean engenON=false;
 int thrRead()
 {
   return map(analogRead(THROTTLE_PIN),THR_LOW,THR_HIGH,THROTTLE_SERVO_LOW,THROTTLE_SERVO_HIGH);
-}
-
-boolean key()
-{
-  if(digitalRead(KEY_PIN)==KEY_POS)
-    return true;
-  return false;
 }
 
 boolean engineOn()
@@ -59,6 +50,8 @@ void stopEngine()
     else
       stopEngine();
   }
+#elif defined(ENGEN_SLEEP)
+  #include "sleep.h"
 #endif
 
 void throttle()

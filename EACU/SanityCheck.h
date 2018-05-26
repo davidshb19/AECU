@@ -44,6 +44,8 @@
   #endif
   #ifdef ENGEN_SLEEP
     #ifndef ENGEN_SLEEP_TIME
+      #error "ENGEN_SLEEP_TIME must be specified"
+    #endif
   #endif
 #endif
 //board/pins

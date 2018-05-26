@@ -67,7 +67,7 @@
   //if you want to enable this feature uncommit this line below.
   #define ENGEN_SLEEP
   #ifdef ENGEN_SLEEP
-    #ifndef
+    #ifndef ENGEN_SLEEP_TIME
       #define ENGEN_SLEEP_TIME 5000 //time in miliseconds
     #endif
   #endif
