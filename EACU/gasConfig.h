@@ -47,7 +47,7 @@ void stopEngine()
   {
     if(rpm()<5&&key())
       startEngine();
-    else
+    else if(!key())
       stopEngine();
   }
 #elif defined(ENGEN_SLEEP)
