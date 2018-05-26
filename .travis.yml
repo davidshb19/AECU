@@ -54,6 +54,7 @@ script:
   # test with no smart running
   - opt_disable EXHAUST_OX
   - opt_disable CHOKE
+  - opt_disable ENGEN_SLEEP
   - build_eacu
   # reset config
   - restore_configs
