@@ -60,5 +60,5 @@ script:
   - restore_configs
   # test with choke but no o3 sensor
   - opt_disable EXHAUST_OX
-  - opt_enable
+  - opt_enable NO_OX
   - build_eacu
