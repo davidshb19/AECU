@@ -61,6 +61,16 @@
       #define CHOKE_SERVO_HIGH 180
     #endif
   #endif
+
+  //engen sleep. this feature allows the engen to automaticly turn off and on
+  //depending on weather it has been inactive for a set amout of time.
+  //if you want to enable this feature uncommit this line below.
+  #define ENGEN_SLEEP
+  #ifdef ENGEN_SLEEP
+    #ifndef
+      #define ENGEN_SLEEP_TIME 5000 //time in miliseconds
+    #endif
+  #endif
 #endif
 
 //key position if inseted

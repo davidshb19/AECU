@@ -42,6 +42,9 @@
       #error "CHOKE_SERVO_HIGH must be specified"
     #endif
   #endif
+  #ifdef ENGEN_SLEEP
+    #ifndef ENGEN_SLEEP_TIME
+  #endif
 #endif
 //board/pins
 #ifndef ANALOG_LOW

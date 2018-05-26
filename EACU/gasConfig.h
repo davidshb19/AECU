@@ -3,6 +3,9 @@
 #ifdef CHOKE
   #include "choke.h"
 #endif
+#ifdef ENGEN_SLEEP
+  #include "sleep.h"
+#endif
 Servo throttleServo;
 int thrPos=0;
 int gasLev=0;
@@ -48,13 +51,15 @@ void stopEngine()
   engenON=false;
 }
 
-void engienAlive()
-{
-  if(rpm()<5&&key())
-    startEngine();
-  else
-    stopEngine();
-}
+#ifndef ENGEN_SLEEP
+  void engienAlive()
+  {
+    if(rpm()<5&&key())
+      startEngine();
+    else
+      stopEngine();
+  }
+#endif
 
 void throttle()
 {
