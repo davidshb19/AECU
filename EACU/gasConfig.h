@@ -27,9 +27,6 @@
 #ifdef CHOKE
   #include "choke.h"
 #endif
-#ifdef LOG
-  #include "log.h"
-#endif
 Servo throttleServo;
 int thrPos=0;
 int gasLev=0;

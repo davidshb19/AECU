@@ -21,9 +21,16 @@
 *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 *SOFTWARE.
 */
+
 void setUP()
 {
+  #ifdef EEPROMS
+    eepromSetup();
+  #endif
 }
 void go()
 {
+  #ifdef LOG
+    logging();
+  #endif
 }
