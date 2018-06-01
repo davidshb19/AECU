@@ -21,27 +21,53 @@
 *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 *SOFTWARE.
 */
-#include "eacuConfig.h"
-//run
-void setup()
+
+/**
+*position 0 = day
+*/
+#ifdef EEPROMS
+  #include <EEPROM.h>
+#endif
+
+boolean debug=false;
+
+//day. how the log derermans what day to save
+int day=1;
+#ifdef EEPROMS
+  if(EEPROM.read(0)>day)
+    day=EEPROM.raad(0);
+  else
+    debug=true;
+#endif
+
+//actual logging
+void logging()
 {
-  #ifdef LOG
-    if(!debug)
+#if MOTOR==1
+  #ifdef EEPROMS
+    if(86400000>mills())
+    {
+      day++;
+      EEPROM.write(0,day);
+    }
+  #else
+
   #endif
-      setUP();
-  #ifdef LOG && EEPROMS
-    else
-      bugS();
-  #endif
+#endif
 }
-void loop()
+
+void bugS()
 {
-  #ifdef LOG
-    if(!debug)
-  #endif
-      go();
-  #ifdef LOG && EEPROMS
-    else
-      bug();
-  #endif
+  Serial.begin(9600);
+}
+
+void bug()
+{
+  if (Serial.available() > 0)
+  {
+    incomingByte = Serial.read();
+    #ifdef EEPROMS
+      Serial.println(EEPROM.read(incomingByte));
+    #endif
+  }
 }
