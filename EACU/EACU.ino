@@ -29,7 +29,7 @@ void setup()
     if(!debug)
   #endif
       setUP();
-  #ifdef LOG && EEPROMS
+  #if defined(LOG) && defined(EEPROMS)
     else
       bugS();
   #endif
@@ -40,7 +40,7 @@ void loop()
     if(!debug)
   #endif
       go();
-  #ifdef LOG && EEPROMS
+      #if defined(LOG) && defined(EEPROMS)
     else
       bug();
   #endif

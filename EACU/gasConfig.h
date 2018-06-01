@@ -27,7 +27,7 @@
 #ifdef CHOKE
   #include "choke.h"
 #endif
-#ifndef LOG
+#ifdef LOG
   #include "log.h"
 #endif
 Servo throttleServo;
@@ -115,6 +115,9 @@ void setUP()
   #ifdef IGNITION_MOTOER
     pinMode(IGNITION_MOTOR_PIN, OUTPUT);
     digitalWrite(IGNITION_MOTOR_PIN, !IGNITION_MOTOER_ON);
+  #endif
+  #ifdef EEPROMS
+    eepromSetup();
   #endif
 }
 void go()

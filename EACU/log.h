@@ -29,15 +29,20 @@
   #include <EEPROM.h>
 #endif
 
+int incomingByte = 0;
 boolean debug=false;
 
 //day. how the log derermans what day to save
 int day=1;
+
 #ifdef EEPROMS
+void eepromSetup()
+{
   if(EEPROM.read(0)>day)
-    day=EEPROM.raad(0);
+    day=EEPROM.read(0);
   else
     debug=true;
+}
 #endif
 
 //actual logging
@@ -45,7 +50,7 @@ void logging()
 {
 #if MOTOR==1
   #ifdef EEPROMS
-    if(86400000>mills())
+    if(86400000>millis())
     {
       day++;
       EEPROM.write(0,day);
