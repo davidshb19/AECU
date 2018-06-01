@@ -49,6 +49,9 @@ script:
   # test with electric motor. at the moment does nothing
   - opt_set MOTOR 2
   - build_eacu
+  # test with no logging
+  - opt_disable LOG
+  - build_eacu
   # reset config
   - restore_configs
   # test with no smart running
@@ -56,9 +59,17 @@ script:
   - opt_disable CHOKE
   - opt_disable ENGEN_SLEEP
   - build_eacu
+  # test with no logging
+  - opt_disable LOG
+  - build_eacu
   # reset config
   - restore_configs
   # test with choke but no o3 sensor
   - opt_disable EXHAUST_OX
   - opt_enable NO_OX
+  - build_eacu
+  # test with no motor sleep
+  - opt_disable ENGEN_SLEEP
+  # test with no logging
+  - opt_disable LOG
   - build_eacu
