@@ -63,6 +63,8 @@ void logging()
 
 void bugS()
 {
+  //fail safe and kil engen
+  digitalWrite(SPARK_ACTIVE_PIN, !SPARK_ACTIVE_ON);
   Serial.begin(9600);
 }
 
