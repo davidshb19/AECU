@@ -25,12 +25,12 @@
 #include "boards.h"
 #include "pins.h"
 #include "SanityCheck.h"
-#ifdef LOG
-  #include "log.h"
-#endif
 #if MOTOR==1
   #include "gasConfig.h"
 #endif
 #if MOTOR==2
   #include "electricConfig.h"
+#endif
+#ifdef LOG
+  #include "log.h"
 #endif

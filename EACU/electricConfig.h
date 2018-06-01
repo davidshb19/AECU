@@ -24,13 +24,7 @@
 
 void setUP()
 {
-  #ifdef EEPROMS
-    eepromSetup();
-  #endif
 }
 void go()
 {
-  #ifdef LOG
-    logging();
-  #endif
 }

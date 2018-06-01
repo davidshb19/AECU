@@ -113,9 +113,6 @@ void setUP()
     pinMode(IGNITION_MOTOR_PIN, OUTPUT);
     digitalWrite(IGNITION_MOTOR_PIN, !IGNITION_MOTOER_ON);
   #endif
-  #ifdef EEPROMS
-    eepromSetup();
-  #endif
 }
 void go()
 {
@@ -123,8 +120,5 @@ void go()
   throttle();
   #ifdef CHOKE
     choke();
-  #endif
-  #ifdef LOG
-    logging();
   #endif
 }
