@@ -31,3 +31,6 @@
 #if MOTOR==2
   #include "electricConfig.h"
 #endif
+#ifdef LOG
+  #include "log.h"
+#endif

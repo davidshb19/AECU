@@ -26,6 +26,17 @@
   #define MOTHERBOARD BOARD_UNO
 #endif
 
+//logging. if you want to use logging in your setup.
+//if you have a sd card reader / wighter it is highly recomendedou use it as to prevent eeprom dammege.
+#ifndef LOG
+  #define LOG
+#endif
+#ifdef LOG
+  #ifndef EEPROMS
+    #define EEPROMS
+  #endif
+#endif
+
 //motor model. uncommit the correct line fot the type of moter you have.
 //if you have gas set to 1.
 // if electric set to 2
