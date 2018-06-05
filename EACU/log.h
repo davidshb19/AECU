@@ -89,7 +89,9 @@ void logging()
 void bugS()
 {
   //fail safe and kil engen
-  digitalWrite(SPARK_ACTIVE_PIN, !SPARK_ACTIVE_ON);
+  #if MOTOR==1
+    digitalWrite(SPARK_ACTIVE_PIN, !SPARK_ACTIVE_ON);
+  #endif
   Serial.begin(9600);
 }
 
