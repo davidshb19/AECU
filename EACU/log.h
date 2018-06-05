@@ -23,7 +23,12 @@
 */
 
 /**
-*position 0 = day
+* position 0 = day
+* if gas
+* position 1 = thrPos
+* position 2 = gasLev
+* position 3 = engenOn()
+* position 4 = gasLev()
 */
 #ifdef EEPROMS
   #include <EEPROM.h>
@@ -48,17 +53,35 @@ void eepromSetup()
 //actual logging
 void logging()
 {
-#if MOTOR==1
   #ifdef EEPROMS
     if(86400000>millis())
     {
       day++;
       EEPROM.write(0,day);
     }
-  #else
-
   #endif
-#endif
+  #if MOTOR==1
+    if(thrPos!=EEPROM.read(1)&&engenOn())
+      EEPROM.write(1,thrPos);
+    if(gasLev!=EEPROM.read(2))
+      EEPROM.write(2,gasLev);
+    if(engenOn()!=EEPROM.read(3))
+      EEPROM.write(3,engenOn());
+    if(rpm()!=EEPROM.read(4))
+      EEPROM.write(4,rpm());
+    if(key()!=EEPROM.read(5))
+      EEPROM.write(5,key());
+    if(choPos!=EEPROM.read(6))
+      EEPROM.write(6,choPos);
+    #ifdef EXHAUST_OX
+      if(exhaustOx()!=EEPROM.read(7))
+        EEPROM.write(7,exhaustOx());
+    #endif
+    #ifdef ENGEN_SLEEP
+      if(sleep!=EEPROM.read(8))
+        EEPROM.write(8,sleep)
+    #endif
+  #endif
 }
 
 void bugS()
