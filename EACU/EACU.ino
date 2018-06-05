@@ -27,12 +27,14 @@ void setup()
 {
   #ifdef LOG
     if(!debug)
+    {
   #endif
       setUP();
       #ifdef EEPROMS
         eepromSetup();
       #endif
   #if defined(LOG)
+    }
     else
       bugS();
   #endif
@@ -41,12 +43,14 @@ void loop()
 {
   #ifdef LOG
     if(!debug)
+    {
   #endif
       go();
       #ifdef LOG
         logging();
       #endif
   #if defined(LOG)
+    }
     else
       bug();
   #endif

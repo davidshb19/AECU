@@ -61,12 +61,12 @@ void logging()
     }
   #endif
   #if MOTOR==1
-    if(thrPos!=EEPROM.read(1)&&engenOn())
+    if(thrPos!=EEPROM.read(1)&&engineOn())
       EEPROM.write(1,thrPos);
     if(gasLev!=EEPROM.read(2))
       EEPROM.write(2,gasLev);
-    if(engenOn()!=EEPROM.read(3))
-      EEPROM.write(3,engenOn());
+    if(engineOn()!=EEPROM.read(3))
+      EEPROM.write(3,engineOn());
     if(rpm()!=EEPROM.read(4))
       EEPROM.write(4,rpm());
     if(key()!=EEPROM.read(5))
@@ -79,7 +79,7 @@ void logging()
     #endif
     #ifdef ENGEN_SLEEP
       if(sleep!=EEPROM.read(8))
-        EEPROM.write(8,sleep)
+        EEPROM.write(8,sleep);
     #endif
   #endif
 }
