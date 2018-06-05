@@ -71,8 +71,10 @@ void logging()
       EEPROM.write(4,rpm());
     if(key()!=EEPROM.read(5))
       EEPROM.write(5,key());
-    if(choPos!=EEPROM.read(6))
-      EEPROM.write(6,choPos);
+    #ifdef CHOKE
+      if(choPos!=EEPROM.read(6))
+        EEPROM.write(6,choPos);
+    #endif
     #ifdef EXHAUST_OX
       if(exhaustOx()!=EEPROM.read(7))
         EEPROM.write(7,exhaustOx());
